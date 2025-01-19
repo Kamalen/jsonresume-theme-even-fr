@@ -35,7 +35,7 @@ export default function Projects(projects = []) {
             }) => html`
               <article>
                 <header>
-                  <h4>${Link(url, name)}</h4>
+                  <h4>${Link(url, name, true)}</h4>
                   <div class="meta">
                     <div>
                       ${roles.length > 0 && html`<strong>${formatRoles(roles)}</strong>`}

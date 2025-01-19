@@ -4,7 +4,7 @@ import Duration from './duration.js'
 import Link from './link.js'
 
 /** @typedef {NonNullable<import('../schema.d.ts').ResumeSchema['work']>[number]} Work */
-/** @typedef {Pick<Work, 'highlights' | 'location' | 'position' | 'startDate' | 'endDate' | 'summary'>} NestedWorkItem */
+/** @typedef {Pick<Work, 'highlights' | 'location' | 'position' | 'startDate' | 'endDate' | 'summary' | 'keywords'>} NestedWorkItem */
 /** @typedef {Pick<Work, 'description' | 'name' | 'url'> & { items: NestedWorkItem[] }} NestedWork */
 
 /**
@@ -34,7 +34,7 @@ export default function Work(work = []) {
                 </header>
                 <div class="timeline">
                   ${items.map(
-                    ({ highlights = [], location, position, startDate, endDate, summary }) => html`
+                    ({ highlights = [], location, position, startDate, endDate, summary, keywords = [] }) => html`
                       <div>
                         <div>
                           <h5>${position}</h5>
@@ -48,6 +48,12 @@ export default function Work(work = []) {
                         html`
                           <ul>
                             ${highlights.map(highlight => html`<li>${markdown(highlight)}</li>`)}
+                          </ul>
+                        `}
+                        ${keywords.length > 0 &&
+                        html`
+                          <ul class="tag-list">
+                            ${keywords.map(keyword => html`<li>${keyword}</li>`)}
                           </ul>
                         `}
                       </div>

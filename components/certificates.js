@@ -17,7 +17,7 @@ export default function Certificates(certificates = []) {
             ({ date, issuer, name, url }) => html`
               <article>
                 <header>
-                  <h4>${Link(url, name)}</h4>
+                  <h4>${Link(url, name, true)}</h4>
                   <div class="meta">
                     ${issuer && html`<div>Issued by <strong>${issuer}</strong></div>`} ${date && DateTime(date)}
                   </div>

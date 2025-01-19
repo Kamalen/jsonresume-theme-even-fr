@@ -93,6 +93,15 @@ li::marker,
 a {
   color: var(--color-accent);
   text-decoration: none;
+  svg {
+    margin-left: 6px;
+  }
+}
+
+a:link {
+  svg {
+    margin-bottom: 5px;
+  }
 }
 
 a:focus,

@@ -18,7 +18,7 @@ export default function Education(education = []) {
             ({ area, courses = [], institution, startDate, endDate, studyType, url }) => html`
               <article>
                 <header>
-                  <h4>${Link(url, institution)}</h4>
+                  <h4>${Link(url, institution, true)}</h4>
                   <div class="meta">
                     ${area && html`<strong>${area}</strong>`}
                     ${startDate && html`<div>${Duration(startDate, endDate)}</div>`}
